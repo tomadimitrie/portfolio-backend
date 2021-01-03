@@ -14,8 +14,8 @@ type About struct {
 }
 
 type AboutDTO struct {
-	Priority uint8
-	Title    string
-	Value    string
-	Details  pq.StringArray `gorm:"type:text[]"`
+	Priority uint8          `json:"priority"`
+	Title    string         `json:"title"`
+	Value    string         `json:"value"`
+	Details  pq.StringArray `json:"details" gorm:"type:text[]"`
 }
