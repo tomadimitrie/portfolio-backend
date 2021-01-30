@@ -16,5 +16,5 @@ type ContactDTO struct {
 	Priority uint8  `json:"priority"`
 	Title    string `json:"title"`
 	Value    string `json:"value"`
-	Href     string
+	Href     string `json:"href"`
 }

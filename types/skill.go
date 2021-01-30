@@ -13,7 +13,7 @@ type Skill struct {
 }
 
 type SkillDTO struct {
-	Priority uint8
-	Title    string
-	Value    pq.StringArray `gorm:"type:text[]"`
+	Priority uint8          `json:"priority"`
+	Title    string         `json:"title"`
+	Value    pq.StringArray `json:"value" gorm:"type:text[]"`
 }
