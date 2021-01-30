@@ -21,7 +21,12 @@ func Init() {
 		panic("failed to connect to postgres")
 	}
 	db = conn
-	types := []interface{}{&About{}}
+	types := []interface{}{
+		&About{},
+		&Skill{},
+		&Contact{},
+		&Project{},
+	}
 	for _, val := range types {
 		err = db.AutoMigrate(val)
 		if err != nil {
@@ -33,5 +38,20 @@ func Init() {
 
 func GetAbout() (items []AboutDTO) {
 	db.Model(&About{}).Find(&items)
+	return
+}
+
+func GetSkills() (items []SkillDTO) {
+	db.Model(&Skill{}).Find(&items)
+	return
+}
+
+func GetContact() (items []ContactDTO) {
+	db.Model(&Contact{}).Find(&items)
+	return
+}
+
+func GetProjects() (items []ProjectDTO) {
+	db.Model(&Project{}).Find(&items)
 	return
 }

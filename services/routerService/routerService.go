@@ -7,7 +7,6 @@ import (
 	"os"
 )
 
-
 func Init() {
 	port, exists := os.LookupEnv("PORT")
 	if !exists {
@@ -24,5 +23,14 @@ func Init() {
 func initRoutes(router *gin.Engine) {
 	router.GET("/about", func(c *gin.Context) {
 		c.JSON(200, dbService.GetAbout())
+	})
+	router.GET("/skills", func(c *gin.Context) {
+		c.JSON(200, dbService.GetSkills())
+	})
+	router.GET("/contact", func(c *gin.Context) {
+		c.JSON(200, dbService.GetContact())
+	})
+	router.GET("/projects", func(c *gin.Context) {
+		c.JSON(200, dbService.GetProjects())
 	})
 }
