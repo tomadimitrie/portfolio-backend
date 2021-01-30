@@ -26,6 +26,7 @@ func Init() {
 		&Skill{},
 		&Contact{},
 		&Project{},
+		&Constant{},
 	}
 	for _, val := range types {
 		err = db.AutoMigrate(val)
@@ -53,5 +54,10 @@ func GetContact() (items []ContactDTO) {
 
 func GetProjects() (items []ProjectDTO) {
 	db.Model(&Project{}).Find(&items)
+	return
+}
+
+func GetLandingConstant() (item ConstantDTO) {
+	db.Model(&Constant{}).Where(&Constant{Key: "landing"}).First(&item)
 	return
 }

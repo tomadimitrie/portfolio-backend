@@ -33,4 +33,7 @@ func initRoutes(router *gin.Engine) {
 	router.GET("/projects", func(c *gin.Context) {
 		c.JSON(200, dbService.GetProjects())
 	})
+	router.GET("/landing", func(c *gin.Context) {
+		c.JSON(200, dbService.GetLandingConstant())
+	})
 }
